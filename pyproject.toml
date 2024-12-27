@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "aiogram-youtube"
+version = "0.1.0"
+description = ""
+authors = ["develophub <mixan_45@mail.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+aiogram = "^3.16.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
