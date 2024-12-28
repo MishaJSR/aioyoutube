@@ -30,7 +30,7 @@ async def on_startup():
 
 
 async def on_shutdown(bot):
-    logging.info("Shutdown bot")
+    logging.info("Shutdown bot")#dev
 
 
 
