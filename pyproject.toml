@@ -12,6 +12,8 @@ pydantic-settings = "^2.7.0"
 betterlogging = "^1.0.0"
 redis = "^5.2.1"
 validators = "^0.34.0"
+grpcio = "^1.68.1"
+grpcio-tools = "^1.68.1"
 
 
 [build-system]

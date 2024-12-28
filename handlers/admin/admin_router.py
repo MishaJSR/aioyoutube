@@ -9,6 +9,7 @@ from base_settings import base_settings
 admin_main_router = Router()
 user_bot_id = base_settings.get_user_bot_id()
 static_reg = "regxstate"
+static_status = "progress"
 
 def is_valid_url(url):
     return validators.url(url)
@@ -16,7 +17,6 @@ def is_valid_url(url):
 @admin_main_router.message(CommandStart())
 async def user_start(message: types.Message):
     await message.answer("Чтобы бот вам отправил видео с ютуб, отправьте ему ссылку")
-
 
 @admin_main_router.message()
 async def user_start(message: types.Message):
