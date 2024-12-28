@@ -7,7 +7,7 @@ from aiogram import Bot
 from grpc_utils.proto import message_pb2, message_pb2_grpc
 
 async def start_progress_bar(bot, tg_user_id, duration_in_seconds, mess_id):
-    duration = duration_in_seconds / 200
+    duration = duration_in_seconds / 150
     num_values = 10
     interval = duration / num_values
     for i in range(num_values):
