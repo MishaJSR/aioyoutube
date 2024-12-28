@@ -8,6 +8,10 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 aiogram = "^3.16.0"
+pydantic-settings = "^2.7.0"
+betterlogging = "^1.0.0"
+redis = "^5.2.1"
+validators = "^0.34.0"
 
 
 [build-system]
