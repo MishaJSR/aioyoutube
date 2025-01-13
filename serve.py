@@ -3,6 +3,7 @@ import asyncio
 import grpc
 import validators
 from aiogram import Bot
+from aiogram.enums import ParseMode
 
 from grpc_utils.proto import message_pb2, message_pb2_grpc
 
@@ -37,11 +38,13 @@ class MessagingServiceServicer(message_pb2_grpc.MessageServiceServicer):
         tg_user_id = request.tg_user_id
         type_mess = request.type_mess
         response = message_pb2.Message(text="Message received: " + request.text)
+        if type_mess == "repeat":
+            await self.bot.send_message(chat_id=tg_user_id, text=f"{text}")
         if type_mess == "position":
             await self.bot.send_message(chat_id=tg_user_id, text=f"{text}")
         if type_mess == "url":
             url, img_url, description = text.split("`")
-            await self.bot.send_photo(chat_id=tg_user_id, photo=f"{img_url}", caption=f"{description}")
+            await self.bot.send_photo(chat_id=tg_user_id, photo=f"{img_url}", caption=f"<b>{description}</b>", parse_mode=ParseMode.HTML)
             mess = await self.bot.send_message(chat_id=tg_user_id, text="Начало загрузки")
             self.last_message_id = mess.message_id
         if type_mess == "progress":
