@@ -27,6 +27,7 @@ async def user_start(message: types.Message):
 async def user_start(message: types.Message):
     if message.chat.id != user_bot_id:
         if validators.url(message.text):
+            await message.answer("Идёт обработка ссылки ...")
             await message.bot.send_message(chat_id=user_bot_id, text=message.text+"`"+str(message.chat.id))
         else:
             await message.answer("URL неопределён")
