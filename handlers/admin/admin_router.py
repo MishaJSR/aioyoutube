@@ -1,8 +1,6 @@
-import asyncio
-from os.path import split
-
 from aiogram import types, Router, F
 from aiogram.filters import CommandStart
+import validators
 
 from base_settings import base_settings
 
@@ -28,6 +26,9 @@ async def user_start(message: types.Message):
 @admin_main_router.message()
 async def user_start(message: types.Message):
     if message.chat.id != user_bot_id:
-        await message.bot.send_message(chat_id=user_bot_id, text=message.text+"`"+str(message.chat.id))
+        if validators.url(message.text):
+            await message.bot.send_message(chat_id=user_bot_id, text=message.text+"`"+str(message.chat.id))
+        else:
+            await message.answer("URL неопределён")
         print("send")
 
